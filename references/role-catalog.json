@@ -1,0 +1,258 @@
+{
+  "version": 1,
+  "templates": [
+    {
+      "id": "cmo",
+      "title": "CMO",
+      "purpose": "Own cross-channel marketing strategy, prioritization, and executive-level marketing decisions for the project.",
+      "when_to_recommend": [
+        "Marketing strategy spans multiple channels or functions.",
+        "The founder needs a persistent owner for growth direction, positioning, and prioritization.",
+        "The project has enough marketing surface area that narrow specialists need orchestration."
+      ],
+      "when_not_to_recommend": [
+        "The project only needs narrow channel execution.",
+        "A growth lead or product marketer would cover the actual gap more precisely."
+      ],
+      "owns": [
+        "Growth strategy and channel prioritization",
+        "Positioning and high-level messaging direction",
+        "Marketing KPI framework",
+        "Marketing roadmap tradeoffs"
+      ],
+      "does_not_own": [
+        "Day-to-day implementation in every channel",
+        "Core product roadmap decisions"
+      ],
+      "deliverables": [
+        "Channel strategy",
+        "Marketing roadmap",
+        "KPI framework",
+        "Positioning recommendations"
+      ],
+      "success_metrics": [
+        "Growth efficiency",
+        "Qualified pipeline or signups",
+        "Marketing clarity and prioritization quality"
+      ],
+      "default_capability_tier": "local-only",
+      "default_reads": [
+        "product.md",
+        "audience.md",
+        "growth.md",
+        "constraints.md"
+      ]
+    },
+    {
+      "id": "growth-lead",
+      "title": "Growth Lead",
+      "purpose": "Own experiment design and prioritization across acquisition, activation, monetization, and retention.",
+      "when_to_recommend": [
+        "The main gap is growth diagnosis and experiment prioritization.",
+        "The project needs a persistent owner for growth loops and KPI tradeoffs.",
+        "The founder needs help deciding where to focus growth effort next."
+      ],
+      "when_not_to_recommend": [
+        "The need is limited to one channel such as SEO or paid.",
+        "The project is too early to support a broad growth role and needs a narrower operator first."
+      ],
+      "owns": [
+        "Growth model diagnosis",
+        "Experiment roadmap",
+        "KPI tree and bottleneck analysis",
+        "Loop and funnel prioritization"
+      ],
+      "does_not_own": [
+        "Pure brand strategy",
+        "Long-form editorial execution"
+      ],
+      "deliverables": [
+        "Growth loop map",
+        "Experiment backlog",
+        "Prioritization framework",
+        "KPI tree"
+      ],
+      "success_metrics": [
+        "Rate of validated growth learnings",
+        "Movement on the current bottleneck",
+        "Experiment quality and throughput"
+      ],
+      "default_capability_tier": "local-only",
+      "default_reads": [
+        "product.md",
+        "workflows.md",
+        "growth.md",
+        "constraints.md",
+        "assumptions.md"
+      ]
+    },
+    {
+      "id": "seo-lead",
+      "title": "SEO Lead",
+      "purpose": "Own search discovery strategy, content architecture, and technical SEO priorities for organic acquisition.",
+      "when_to_recommend": [
+        "Search intent and content discovery materially affect acquisition.",
+        "The project has or needs content pages, landing pages, or programmatic SEO surfaces.",
+        "External search patterns are important to understanding demand."
+      ],
+      "when_not_to_recommend": [
+        "The project has little meaningful search surface.",
+        "Growth is driven almost entirely by partnerships, direct sales, or product-led loops unrelated to search."
+      ],
+      "owns": [
+        "Keyword and intent strategy",
+        "Content architecture",
+        "Technical SEO prioritization",
+        "Search-driven content briefs"
+      ],
+      "does_not_own": [
+        "Paid acquisition budgeting",
+        "Overall brand strategy"
+      ],
+      "deliverables": [
+        "Keyword clusters",
+        "Content briefs",
+        "SEO backlog",
+        "On-page or technical audit"
+      ],
+      "success_metrics": [
+        "Qualified organic traffic",
+        "Search-driven conversions",
+        "Coverage of high-intent topics"
+      ],
+      "default_capability_tier": "research-enabled",
+      "default_reads": [
+        "product.md",
+        "domain.md",
+        "growth.md",
+        "constraints.md"
+      ]
+    },
+    {
+      "id": "product-marketer",
+      "title": "Product Marketer",
+      "purpose": "Own messaging, segmentation, launch framing, and value communication for the product.",
+      "when_to_recommend": [
+        "The project needs clearer positioning, messaging, or launch communication.",
+        "The founder needs help translating product value into market language.",
+        "The current bottleneck is understanding, conversion narrative, or competitive framing."
+      ],
+      "when_not_to_recommend": [
+        "The primary need is channel-specific execution only.",
+        "The product is too undefined for meaningful positioning work beyond initial discovery."
+      ],
+      "owns": [
+        "Messaging strategy",
+        "Value proposition articulation",
+        "Segment-specific framing",
+        "Launch and announcement positioning"
+      ],
+      "does_not_own": [
+        "Deep channel operations",
+        "Core product management decisions"
+      ],
+      "deliverables": [
+        "Messaging matrix",
+        "ICP framing",
+        "Launch brief",
+        "Competitive narrative"
+      ],
+      "success_metrics": [
+        "Message clarity",
+        "Conversion improvement on key surfaces",
+        "Launch communication quality"
+      ],
+      "default_capability_tier": "local-only",
+      "default_reads": [
+        "product.md",
+        "audience.md",
+        "growth.md",
+        "constraints.md"
+      ]
+    },
+    {
+      "id": "lifecycle-crm-lead",
+      "title": "Lifecycle / CRM Lead",
+      "purpose": "Own activation, retention, re-engagement, and triggered messaging strategy.",
+      "when_to_recommend": [
+        "Retention or activation is a core bottleneck.",
+        "The product has enough user lifecycle events to support segmented messaging.",
+        "The team needs a persistent owner for CRM experiments and retention hypotheses."
+      ],
+      "when_not_to_recommend": [
+        "The product does not yet have meaningful repeat usage.",
+        "The project lacks the operational ability to execute lifecycle messaging in the near term."
+      ],
+      "owns": [
+        "Lifecycle map",
+        "Retention hypotheses",
+        "Triggered messaging strategy",
+        "CRM experiment planning"
+      ],
+      "does_not_own": [
+        "Top-of-funnel acquisition strategy",
+        "SEO strategy"
+      ],
+      "deliverables": [
+        "Lifecycle map",
+        "CRM experiment plan",
+        "Trigger definitions",
+        "Retention messaging strategy"
+      ],
+      "success_metrics": [
+        "Activation rate",
+        "Retention rate",
+        "Re-engagement performance"
+      ],
+      "default_capability_tier": "local-only",
+      "default_reads": [
+        "product.md",
+        "workflows.md",
+        "growth.md",
+        "constraints.md"
+      ]
+    },
+    {
+      "id": "content-strategist",
+      "title": "Content Strategist",
+      "purpose": "Own editorial strategy, narrative consistency, and content system design for the project.",
+      "when_to_recommend": [
+        "The project needs recurring content output tied to growth, education, or authority.",
+        "A domain-aware editorial system matters more than one-off copywriting.",
+        "The team needs content planning beyond channel execution."
+      ],
+      "when_not_to_recommend": [
+        "The need is only ad copy or launch copy.",
+        "Content is not a meaningful part of acquisition, retention, or positioning."
+      ],
+      "owns": [
+        "Editorial pillars",
+        "Content planning",
+        "Narrative consistency",
+        "Brief structure for recurring content"
+      ],
+      "does_not_own": [
+        "SEO technical audits",
+        "Lifecycle messaging operations"
+      ],
+      "deliverables": [
+        "Editorial pillars",
+        "Content calendar",
+        "Content brief templates",
+        "Narrative angles"
+      ],
+      "success_metrics": [
+        "Content consistency",
+        "Content relevance to project goals",
+        "Output quality and reuse"
+      ],
+      "default_capability_tier": "local-only",
+      "default_reads": [
+        "product.md",
+        "audience.md",
+        "domain.md",
+        "growth.md"
+      ]
+    }
+  ]
+}

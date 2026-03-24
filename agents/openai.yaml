@@ -1,0 +1,4 @@
+interface:
+  display_name: "Expert Team Bootstrapper"
+  short_description: "Generate project-aware expert skill teams"
+  default_prompt: "Use $expert-team-bootstrapper to inspect this project, recommend a lean team of experts, and scaffold the generated skills."

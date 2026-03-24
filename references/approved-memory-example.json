@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "approved_facts": [
+    {
+      "id": "fact-seasonality-september-peak",
+      "summary": "User acquisition peaks from late August through September as league seasons start.",
+      "source": "Founder confirmation after first launch cycle",
+      "confidence": "high",
+      "applies_to": "global",
+      "last_confirmed": "2026-03-24"
+    }
+  ],
+  "preferences": [
+    {
+      "id": "pref-avoid-heavy-paid-spend",
+      "summary": "Prefer organic and partnership growth over aggressive paid acquisition until retention improves.",
+      "source": "Founder strategy decision",
+      "confidence": "high",
+      "applies_to": [
+        "growth-lead",
+        "cmo"
+      ]
+    }
+  ],
+  "rejected_strategies": [
+    {
+      "id": "rej-generic-player-news-content",
+      "summary": "Generic player-news recap content was rejected because it did not differentiate the product.",
+      "source": "Post-mortem review",
+      "confidence": "medium",
+      "applies_to": [
+        "seo-lead",
+        "content-strategist"
+      ]
+    }
+  ],
+  "successful_patterns": [
+    {
+      "id": "win-weekly-decision-content",
+      "summary": "Weekly start-sit decision content produced the strongest engagement and referral sharing.",
+      "source": "Content review",
+      "confidence": "high",
+      "applies_to": [
+        "seo-lead",
+        "content-strategist",
+        "growth-lead"
+      ]
+    }
+  ],
+  "open_questions": [
+    {
+      "id": "open-premium-conversion-trigger",
+      "summary": "Best trigger for premium upgrade conversion is still unclear.",
+      "source": "Founder note",
+      "confidence": "medium",
+      "applies_to": [
+        "growth-lead",
+        "lifecycle-crm-lead"
+      ]
+    }
+  ]
+}

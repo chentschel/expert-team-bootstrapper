@@ -1,0 +1,142 @@
+{
+  "project": {
+    "name": "FantasyPulse",
+    "summary": "Fantasy sports product focused on lineup optimization and league engagement for casual and mid-core players.",
+    "sections": {
+      "product": [
+        "Mobile-first fantasy sports companion for weekly lineup decisions.",
+        "Freemium model with premium analytics upsell."
+      ],
+      "audience": [
+        "Casual fantasy players who want fast recommendations.",
+        "More engaged league players who care about weekly edge and bragging rights."
+      ],
+      "workflows": [
+        "Join a league and connect roster context.",
+        "Check lineup recommendations before weekly lock.",
+        "Return for waiver and matchup insights during the season."
+      ],
+      "domain": [
+        "Demand is seasonal and tied to league calendars.",
+        "Content and acquisition are driven by player news, matchups, and search intent."
+      ],
+      "business_model": [
+        "Free tier plus paid subscription for premium insights."
+      ],
+      "growth": [
+        "Priority is acquisition before season peaks and retention through weekly value."
+      ],
+      "constraints": [
+        "Small founding team with limited paid acquisition budget."
+      ],
+      "assumptions": [
+        "Current analytics maturity is low; attribution stack may be incomplete."
+      ]
+    }
+  },
+  "memory": {
+    "approved_facts": [
+      {
+        "id": "fact-seasonality-september-peak",
+        "summary": "User acquisition peaks from late August through September as league seasons start.",
+        "source": "Founder confirmation after first launch cycle",
+        "confidence": "high",
+        "applies_to": "global"
+      }
+    ],
+    "preferences": [
+      {
+        "id": "pref-avoid-heavy-paid-spend",
+        "summary": "Prefer organic and partnership growth over aggressive paid acquisition until retention improves.",
+        "source": "Founder strategy decision",
+        "confidence": "high",
+        "applies_to": [
+          "growth-lead"
+        ]
+      }
+    ],
+    "rejected_strategies": [
+      {
+        "id": "rej-generic-player-news-content",
+        "summary": "Generic player-news recap content was rejected because it did not differentiate the product.",
+        "source": "Post-mortem review",
+        "confidence": "medium",
+        "applies_to": [
+          "seo-lead"
+        ]
+      }
+    ],
+    "successful_patterns": [
+      {
+        "id": "win-weekly-decision-content",
+        "summary": "Weekly start-sit decision content produced the strongest engagement and referral sharing.",
+        "source": "Content review",
+        "confidence": "high",
+        "applies_to": [
+          "seo-lead",
+          "growth-lead"
+        ]
+      }
+    ],
+    "open_questions": [
+      {
+        "id": "open-premium-conversion-trigger",
+        "summary": "Best trigger for premium upgrade conversion is still unclear.",
+        "source": "Founder note",
+        "confidence": "medium",
+        "applies_to": [
+          "growth-lead"
+        ]
+      }
+    ]
+  },
+  "experts": [
+    {
+      "id": "seo-lead",
+      "template_id": "seo-lead",
+      "title": "SEO Lead",
+      "summary": "Owns search discovery and content architecture for seasonally driven acquisition.",
+      "mandate": [
+        "Design organic growth strategy for fantasy-intent discovery."
+      ],
+      "owns": [
+        "Keyword strategy",
+        "SERP-informed content planning",
+        "Technical SEO prioritization"
+      ],
+      "does_not_own": [
+        "Paid acquisition budgeting",
+        "Brand partnerships"
+      ],
+      "deliverables": [
+        "Keyword clusters",
+        "Content briefs",
+        "Technical SEO backlog"
+      ],
+      "success_metrics": [
+        "Qualified organic traffic",
+        "Search-driven signups",
+        "Content coverage of high-intent topics"
+      ],
+      "reads": [
+        "product.md",
+        "domain.md",
+        "growth.md",
+        "constraints.md"
+      ],
+      "capability_tier": "research-enabled",
+      "external_sources": [
+        "SERP patterns",
+        "Competitor content footprints"
+      ],
+      "external_usage": [
+        "Use outside research only when validating keyword or competitor assumptions."
+      ],
+      "memory_refs": [
+        "fact-seasonality-september-peak",
+        "rej-generic-player-news-content",
+        "win-weekly-decision-content"
+      ]
+    }
+  ]
+}
