@@ -51,7 +51,11 @@ agents.
 └── references/
     ├── approved-memory-example.json
     ├── capability-policy.md
+    ├── managed-specialist-example/
+    │   ├── SKILL.md
+    │   └── agents/openai.yaml
     ├── managed-specialist-spec.md
+    ├── manifest-example.json
     ├── manifest-schema.md
     ├── memory-schema.md
     ├── project-dossier-schema.md
@@ -79,9 +83,10 @@ That keeps installation simple and avoids any language-specific setup.
 
 ## How to Use
 
-After installation, invoke the skill in your agent:
+After installation, invoke the skill using your agent's skill syntax:
 
 ```text
+[OpenAI/Codex-style example]
 Use $expert-team-bootstrapper to inspect this project, recommend a lean team of experts, and install or update the managed specialists.
 ```
 
@@ -95,6 +100,8 @@ Typical workflow:
 6. Re-run the bootstrapper later to keep the team aligned with project changes and approved memory.
 
 Example prompts:
+
+OpenAI/Codex-style examples:
 
 ```text
 Use $expert-team-bootstrapper to inspect this repo, identify what product it is, and recommend the smallest useful expert team.
@@ -111,6 +118,9 @@ Use $expert-team-bootstrapper to create persistent experts from the role catalog
 ```text
 Use $expert-team-bootstrapper in preview mode to show which specialists would be created, updated, kept, or removed before applying changes.
 ```
+
+If your agent uses a different skill invocation syntax, use the equivalent
+runtime-specific form while keeping the same intent.
 
 ## Managed Team Lifecycle
 
@@ -219,6 +229,11 @@ The manifest contract is documented in
 [`references/manifest-schema.md`](./references/manifest-schema.md).
 The installed specialist artifact contract is documented in
 [`references/managed-specialist-spec.md`](./references/managed-specialist-spec.md).
+
+Concrete examples are provided in:
+
+- [`references/manifest-example.json`](./references/manifest-example.json)
+- [`references/managed-specialist-example/`](./references/managed-specialist-example)
 
 ## Capability Tiers
 

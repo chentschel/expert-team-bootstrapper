@@ -1,6 +1,6 @@
 ---
 name: expert-team-bootstrapper
-description: Create and maintain a lean team of project-specific expert skills by inspecting a local project, building a shared dossier, recommending only the most useful roles for the current work, and automatically generating, installing, and updating managed specialist skills for the current runtime with explicit capability policies. Use this when a founder or team wants project-aware experts such as marketing, SEO, product, or strategy roles without hand-designing each skill.
+description: Bootstrap and manage a project-specific expert team by inspecting a repo, building canonical project state, recommending the right specialist roles, and installing or updating managed specialists for the current runtime. Use this when the goal is to create, reconcile, or maintain a whole team of project-aware specialists rather than to get one-off advice from a single expert.
 ---
 
 # Expert Team Bootstrapper

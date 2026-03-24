@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "project": {
+    "name": "FantasyPulse",
+    "slug": "fantasypulse"
+  },
+  "management": {
+    "runtime": "codex",
+    "mode": "apply",
+    "install_root": "~/.codex/skills",
+    "managed_prefix": "fantasypulse-"
+  },
+  "state": {
+    "team_spec_path": ".expert-team/team-spec.json",
+    "approved_memory_path": ".expert-team/memory/approved-memory.json"
+  },
+  "specialists": [
+    {
+      "id": "seo-lead",
+      "managed_name": "fantasypulse-seo-lead",
+      "template_id": "seo-lead",
+      "install_path": "~/.codex/skills/fantasypulse-seo-lead",
+      "capability_tier": "research-enabled",
+      "reads": [
+        "product.md",
+        "domain.md",
+        "growth.md",
+        "constraints.md"
+      ],
+      "memory_refs": [
+        "fact-seasonality-september-peak",
+        "rej-generic-player-news-content",
+        "win-weekly-decision-content"
+      ],
+      "managed_by": "expert-team-bootstrapper",
+      "last_applied": "2026-03-24T10:00:00Z",
+      "status": "active"
+    },
+    {
+      "id": "growth-lead",
+      "managed_name": "fantasypulse-growth-lead",
+      "template_id": "growth-lead",
+      "install_path": "~/.codex/skills/fantasypulse-growth-lead",
+      "capability_tier": "local-only",
+      "reads": [
+        "product.md",
+        "workflows.md",
+        "growth.md",
+        "constraints.md",
+        "assumptions.md"
+      ],
+      "memory_refs": [
+        "fact-seasonality-september-peak",
+        "pref-avoid-heavy-paid-spend",
+        "win-weekly-decision-content",
+        "open-premium-conversion-trigger"
+      ],
+      "managed_by": "expert-team-bootstrapper",
+      "last_applied": "2026-03-24T10:00:00Z",
+      "status": "active"
+    }
+  ]
+}
