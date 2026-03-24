@@ -3,6 +3,10 @@
 Managed specialists are runtime-installed artifacts derived from canonical state
 in `.expert-team/`.
 
+When documenting example specialists inside this bootstrapper repo, keep them in
+plain documentation files rather than nested real `SKILL.md` folders so public
+installers do not discover them as extra shipped skills.
+
 ## Required folder shape
 
 Each installed specialist should have:

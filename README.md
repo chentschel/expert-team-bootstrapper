@@ -51,9 +51,7 @@ agents.
 └── references/
     ├── approved-memory-example.json
     ├── capability-policy.md
-    ├── managed-specialist-example/
-    │   ├── SKILL.md
-    │   └── agents/openai.yaml
+    ├── managed-specialist-example.md
     ├── managed-specialist-spec.md
     ├── manifest-example.json
     ├── manifest-schema.md
@@ -236,7 +234,7 @@ The installed specialist artifact contract is documented in
 Concrete examples are provided in:
 
 - [`references/manifest-example.json`](./references/manifest-example.json)
-- [`references/managed-specialist-example/`](./references/managed-specialist-example)
+- [`references/managed-specialist-example.md`](./references/managed-specialist-example.md)
 
 ## Capability Tiers
 

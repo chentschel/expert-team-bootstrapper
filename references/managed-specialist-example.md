@@ -1,3 +1,12 @@
+# Managed Specialist Example
+
+Use this as a documentation example for an installed managed specialist. Do not
+ship example specialists as real nested `SKILL.md` folders inside the published
+bootstrapper repo.
+
+## Example `SKILL.md`
+
+```md
 ---
 name: fantasypulse-growth-lead
 description: Project-specific Growth Lead for FantasyPulse. Use this when growth diagnosis, experiment prioritization, and KPI tradeoffs need to stay grounded in the canonical project state.
@@ -8,6 +17,7 @@ Project slug: fantasypulse
 Role id: growth-lead
 Template id: growth-lead
 Source of truth: .expert-team/team-spec.json
+Install scope: project
 
 # Growth Lead
 
@@ -58,4 +68,13 @@ growth prioritization.
 - Use approved memory to narrow the role, not to override its core boundaries.
 - Distinguish project facts, approved memory, and fresh recommendations.
 - Stay inside the Growth Lead mandate and avoid drifting into adjacent roles.
+```
 
+## Example `agents/openai.yaml`
+
+```yaml
+interface:
+  display_name: "FantasyPulse Growth Lead"
+  short_description: "Growth lead guidance for FantasyPulse"
+  default_prompt: "Use $fantasypulse-growth-lead to help with FantasyPulse growth diagnosis, experiment prioritization, and KPI tradeoffs."
+```

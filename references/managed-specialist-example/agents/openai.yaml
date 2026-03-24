@@ -1,4 +1,0 @@
-interface:
-  display_name: "FantasyPulse Growth Lead"
-  short_description: "Growth lead guidance for FantasyPulse"
-  default_prompt: "Use $fantasypulse-growth-lead to help with FantasyPulse growth diagnosis, experiment prioritization, and KPI tradeoffs."
