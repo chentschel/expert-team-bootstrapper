@@ -63,7 +63,7 @@ agents.
 ## Requirements
 
 - a local project you want to analyze
-- an agent environment that supports `skills.sh` or Codex-style skills
+- an agent environment that supports `skills.sh`
 
 ## Install with skills.sh
 
@@ -75,25 +75,9 @@ npx skills add https://github.com/chentschel/expert-team-bootstrapper
 
 That keeps installation simple and avoids any language-specific setup.
 
-## Install in Codex
+## How to Use
 
-Codex-style environments can use this repo as a native skill.
-
-If you want to install it manually instead of using `skills.sh`, copy or
-symlink the repo root into your Codex skills directory:
-
-```bash
-git clone https://github.com/chentschel/expert-team-bootstrapper.git
-cd expert-team-bootstrapper
-mkdir -p ~/.codex/skills
-ln -s "$PWD" ~/.codex/skills/expert-team-bootstrapper
-```
-
-Restart Codex after installing a new skill.
-
-## Use in Codex
-
-Once installed, invoke the skill explicitly:
+After installation, invoke the skill in your agent:
 
 ```text
 Use $expert-team-bootstrapper to inspect this project, recommend a lean team of experts, and install or update the managed specialists.
@@ -156,17 +140,11 @@ Canonical project state looks like:
 │   └── assumptions.md
 ```
 
-Managed runtime specialists are installed from that state.
+Managed runtime specialists are installed from that state for the current
+runtime. This keeps the project-owned canonical state separate from
+runtime-installed artifacts.
 
-Default install targets:
-
-- Codex: `~/.codex/skills/<project>-<role>/`
-- Claude Code: `.claude/skills/<project>-<role>/`
-
-This keeps the project-owned canonical state separate from runtime-installed
-artifacts.
-
-## Use with Claude, Gemini, and Other Assistants
+## Cross-Agent Use
 
 The analysis should be done by the agent you are already using. This skill is
 primarily a reusable instruction package that tells the agent how to inspect the
