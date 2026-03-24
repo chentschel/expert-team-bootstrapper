@@ -33,6 +33,10 @@ Recommended layout:
 The runtime-installed specialist skills are generated artifacts. The
 `.expert-team/` directory is the durable source of truth.
 
+Use [manifest-schema.md](manifest-schema.md) for the manifest contract and
+[managed-specialist-spec.md](managed-specialist-spec.md) for the installed
+specialist artifact shape.
+
 ## Default install targets
 
 ### Codex
@@ -70,6 +74,11 @@ When the bootstrapper runs in apply mode, it should:
 - update existing managed specialists when the spec, dossier, or approved memory changes
 - remove or archive managed specialists that are no longer in the manifest
 - keep the manifest aligned with the current installed set
+
+When the bootstrapper runs in preview mode, it should:
+
+- calculate the same create, update, remove, and keep decisions
+- show the planned changes without mutating canonical state or installed specialists
 
 ## Safety rules
 

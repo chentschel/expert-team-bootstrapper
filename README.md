@@ -51,6 +51,8 @@ agents.
 └── references/
     ├── approved-memory-example.json
     ├── capability-policy.md
+    ├── managed-specialist-spec.md
+    ├── manifest-schema.md
     ├── memory-schema.md
     ├── project-dossier-schema.md
     ├── role-catalog.json
@@ -88,8 +90,9 @@ Typical workflow:
 1. Ask the bootstrapper to inspect your repo and summarize the product.
 2. Ask it to recommend only the experts that fit your project and current task.
 3. Have it prepare a `team-spec.json` using a base role template for each persistent expert.
-4. Have the agent update `.expert-team/` and install or update the managed specialists automatically.
-5. Re-run the bootstrapper later to keep the team aligned with project changes and approved memory.
+4. Run in `preview` mode when you want to inspect planned changes first.
+5. Run in `apply` mode to update `.expert-team/` and install or update the managed specialists automatically.
+6. Re-run the bootstrapper later to keep the team aligned with project changes and approved memory.
 
 Example prompts:
 
@@ -103,6 +106,10 @@ Use $expert-team-bootstrapper to create a team spec for this project with clear 
 
 ```text
 Use $expert-team-bootstrapper to create persistent experts from the role catalog, specialize them for this project, and record only durable learnings in approved memory.
+```
+
+```text
+Use $expert-team-bootstrapper in preview mode to show which specialists would be created, updated, kept, or removed before applying changes.
 ```
 
 ## Managed Team Lifecycle
@@ -143,6 +150,11 @@ Canonical project state looks like:
 Managed runtime specialists are installed from that state for the current
 runtime. This keeps the project-owned canonical state separate from
 runtime-installed artifacts.
+
+Two operating modes are expected:
+
+- `preview`: show planned create, update, remove, and keep actions without mutating anything
+- `apply`: write canonical state and reconcile managed specialists
 
 ## Cross-Agent Use
 
@@ -203,6 +215,10 @@ The bootstrapper should behave like a control plane:
 
 The current runtime policy is documented in
 [`references/runtime-management.md`](./references/runtime-management.md).
+The manifest contract is documented in
+[`references/manifest-schema.md`](./references/manifest-schema.md).
+The installed specialist artifact contract is documented in
+[`references/managed-specialist-spec.md`](./references/managed-specialist-spec.md).
 
 ## Capability Tiers
 

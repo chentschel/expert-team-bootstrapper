@@ -81,6 +81,7 @@ Write a JSON spec matching the format in
 The spec should include:
 
 - project name and summary
+- management settings
 - dossier sections
 - approved memory
 - expert definitions
@@ -92,6 +93,7 @@ should hold the bulk of the product and domain knowledge.
 Every persistent expert in the spec should include:
 
 - `template_id`
+- `managed_name`
 - dossier files it reads
 - any approved-memory entries that materially sharpen the role
 
@@ -139,6 +141,10 @@ Use [references/approved-memory-example.json](references/approved-memory-example
 as the pattern for `.expert-team/memory/approved-memory.json`.
 Use [references/runtime-management.md](references/runtime-management.md) for
 runtime-specific install and reconciliation rules.
+Use [references/manifest-schema.md](references/manifest-schema.md) for
+`.expert-team/manifest.json` and
+[references/managed-specialist-spec.md](references/managed-specialist-spec.md)
+for installed specialist shape and provenance markers.
 
 When applying changes:
 
@@ -146,6 +152,11 @@ When applying changes:
 - install or update specialists for the current runtime
 - keep runtime-installed specialists derived from canonical state
 - remove stale managed specialists when they are no longer in the manifest
+
+Support two operating modes:
+
+- `preview`: compute recommended creates, updates, removals, and keeps without mutating state
+- `apply`: write canonical state and reconcile managed specialists
 
 ### 5. Review before regeneration
 
@@ -156,6 +167,7 @@ Before regenerating:
 - preserve useful manual edits by incorporating them into `team-spec.json`
 - review and promote only durable learnings into approved memory
 - reconcile managed runtime specialists against the current manifest
+- use preview before destructive removals when practical
 
 Do not regenerate from raw chat transcripts. If there are learnings from prior
 work, convert them into reviewed facts, preferences, or rejected ideas before

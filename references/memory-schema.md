@@ -6,7 +6,7 @@ role `SKILL.md` files.
 Store approved memory in a file such as:
 
 ```text
-generated-team/memory/approved-memory.json
+.expert-team/memory/approved-memory.json
 ```
 
 ## Why this exists
