@@ -16,6 +16,7 @@ It should answer:
 
 - which specialists are currently managed
 - where they are installed
+- which install scope was chosen
 - which spec and memory state they were derived from
 - which runtime the manifest applies to
 
@@ -31,7 +32,8 @@ It should answer:
   "management": {
     "runtime": "codex",
     "mode": "apply",
-    "install_root": "~/.codex/skills",
+    "install_scope": "project",
+    "install_root": ".codex/skills",
     "managed_prefix": "example-"
   },
   "state": {
@@ -50,6 +52,7 @@ Each entry in `specialists` should include:
 - `managed_name`: installed skill name, usually `<project>-<role>`
 - `template_id`: base template used
 - `install_path`: runtime-specific path where the skill is installed
+- `install_scope`: `project` or `user`
 - `capability_tier`: effective capability tier
 - `reads`: dossier files used by the specialist
 - `memory_refs`: approved-memory entries used to specialize the role

@@ -34,7 +34,7 @@ The bootstrapper helps you:
 - build a structured shared dossier for product, audience, domain, growth, and constraints
 - keep a lightweight approved-memory file for durable project learnings
 - recommend which experts are actually worth creating
-- have the coding agent generate and install managed specialists for the current runtime
+- have the coding agent generate and install managed specialists in the active runtime's preferred scope
 - regenerate the team later from a canonical JSON spec
 
 Generated experts are reusable role definitions, not always-on autonomous
@@ -133,7 +133,7 @@ should be done by the coding agent itself. The intended flow is:
 3. the agent drafts `.expert-team/memory/approved-memory.json` for durable confirmed learnings
 4. the agent writes `.expert-team/shared-references/*`
 5. the agent updates `.expert-team/manifest.json`
-6. the agent installs or updates managed specialists for the current runtime
+6. the agent installs or updates managed specialists in the active runtime's preferred scope
 
 You can keep `.expert-team/team-spec.json` as the canonical source for
 regeneration and `.expert-team/memory/approved-memory.json` as the curated
@@ -158,9 +158,10 @@ Canonical project state looks like:
 │   └── assumptions.md
 ```
 
-Managed runtime specialists are installed from that state for the current
+Managed runtime specialists are installed from that state for the active
 runtime. This keeps the project-owned canonical state separate from
-runtime-installed artifacts.
+runtime-installed artifacts and lets install scope follow the runtime rather
+than a hardcoded global path.
 
 Two operating modes are expected:
 
@@ -196,8 +197,8 @@ The portable project-owned pieces are:
    every chat.
 
 In other words: the bootstrapper should install and maintain specialists for the
-current runtime where possible, while the canonical `.expert-team/` state stays
-portable across agents.
+active runtime using that runtime's preferred scope where possible, while the
+canonical `.expert-team/` state stays portable across agents.
 
 ## How Roles Stay Consistent
 
@@ -220,6 +221,7 @@ The bootstrapper should behave like a control plane:
 
 - canonical state lives in `.expert-team/`
 - runtime-specific installed specialists are derived artifacts
+- install scope should follow the active runtime and prefer project-local scope for project-specific teams
 - create and update operations should apply automatically
 - stale managed specialists should be removed or archived during reconciliation
 - unrelated user-created skills should not be touched

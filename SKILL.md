@@ -16,7 +16,7 @@ references.
 The bootstrapper should act as the control plane for those specialists:
 
 - maintain canonical project state in `.expert-team/`
-- install or update managed specialists for the current runtime
+- install or update managed specialists in the active runtime's preferred scope
 - reconcile stale managed specialists when the team changes
 
 Keep the output lean:
@@ -149,7 +149,7 @@ for installed specialist shape and provenance markers.
 When applying changes:
 
 - update canonical state in `.expert-team/`
-- install or update specialists for the current runtime
+- install or update specialists in the active runtime's preferred scope
 - keep runtime-installed specialists derived from canonical state
 - remove stale managed specialists when they are no longer in the manifest
 

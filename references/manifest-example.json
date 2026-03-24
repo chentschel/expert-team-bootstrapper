@@ -7,7 +7,8 @@
   "management": {
     "runtime": "codex",
     "mode": "apply",
-    "install_root": "~/.codex/skills",
+    "install_scope": "project",
+    "install_root": ".codex/skills",
     "managed_prefix": "fantasypulse-"
   },
   "state": {
@@ -19,7 +20,8 @@
       "id": "seo-lead",
       "managed_name": "fantasypulse-seo-lead",
       "template_id": "seo-lead",
-      "install_path": "~/.codex/skills/fantasypulse-seo-lead",
+      "install_scope": "project",
+      "install_path": ".codex/skills/fantasypulse-seo-lead",
       "capability_tier": "research-enabled",
       "reads": [
         "product.md",
@@ -40,7 +42,8 @@
       "id": "growth-lead",
       "managed_name": "fantasypulse-growth-lead",
       "template_id": "growth-lead",
-      "install_path": "~/.codex/skills/fantasypulse-growth-lead",
+      "install_scope": "project",
+      "install_path": ".codex/skills/fantasypulse-growth-lead",
       "capability_tier": "local-only",
       "reads": [
         "product.md",

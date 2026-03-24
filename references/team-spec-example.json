@@ -38,7 +38,8 @@
     "project_slug": "fantasypulse",
     "mode": "apply",
     "runtime": "codex",
-    "install_root": "~/.codex/skills",
+    "install_scope": "project",
+    "install_root": ".codex/skills",
     "managed_prefix": "fantasypulse-"
   },
   "memory": {

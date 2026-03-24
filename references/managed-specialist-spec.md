@@ -22,6 +22,7 @@ Every managed specialist must:
 - be narrowed by approved memory only
 - stay concise and role-specific
 - point back to canonical project state rather than duplicating the full dossier
+- be installed into the active runtime's chosen scope rather than a hardcoded global path
 
 ## Required `SKILL.md` frontmatter
 
@@ -54,6 +55,7 @@ Project slug: fantasypulse
 Role id: growth-lead
 Template id: growth-lead
 Source of truth: .expert-team/team-spec.json
+Install scope: project
 ```
 
 This marker makes reconciliation safer and prevents accidental modification of

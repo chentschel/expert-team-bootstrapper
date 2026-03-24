@@ -39,13 +39,22 @@ specialist artifact shape.
 
 ## Default install targets
 
+Generated specialists should inherit the active runtime's preferred scope when
+that scope can be detected. If the bootstrapper was installed into a known
+project-level or user-level location for that runtime, use the same scope style
+for managed specialists unless the user explicitly asks for something else. For
+project-specific teams, prefer project-local installation. Use user-level
+installation only when the user explicitly asks for it or when the runtime does
+not support project-local skills.
+
 ### Codex
 
-- default install root: `~/.codex/skills/`
-- install as managed user-level skills
+- prefer the same scope style the bootstrapper itself is using when that is discoverable
+- if the runtime exposes only a user-level skills directory, use that directory
+- otherwise prefer a project-local managed location for project-specific teams
 - use a project-prefixed skill id to avoid collisions
 
-Example:
+Example user-level install:
 
 ```text
 ~/.codex/skills/fantasypulse-seo-lead/
@@ -53,11 +62,11 @@ Example:
 
 ### Claude Code
 
-- default install root: `.claude/skills/`
 - prefer project-level installation for project-specific specialists
+- fall back to user-level installation only when explicitly requested
 - use the same project-prefixed skill id
 
-Example:
+Example project-level install:
 
 ```text
 .claude/skills/fantasypulse-seo-lead/
@@ -93,6 +102,7 @@ Each managed specialist should have:
 
 - a stable role id
 - a runtime install path
+- an install scope such as `project` or `user`
 - provenance back to `.expert-team/team-spec.json`
 - a project-specific prefixed installed name
 
