@@ -1,6 +1,6 @@
 ---
 name: expert-team-bootstrapper
-description: Create and maintain a lean team of project-specific expert skills by inspecting a local project, building a shared dossier, recommending only the most useful roles for the current work, and scaffolding reusable role skills with explicit capability policies. Use this when a founder or team wants project-aware experts such as marketing, SEO, product, or strategy roles without hand-designing each skill.
+description: Create and maintain a lean team of project-specific expert skills by inspecting a local project, building a shared dossier, recommending only the most useful roles for the current work, and automatically generating, installing, and updating managed specialist skills for the current runtime with explicit capability policies. Use this when a founder or team wants project-aware experts such as marketing, SEO, product, or strategy roles without hand-designing each skill.
 ---
 
 # Expert Team Bootstrapper
@@ -13,6 +13,12 @@ current needs from repo artifacts, ask only the questions that materially change
 the generated team, then scaffold role skills backed by shared project
 references.
 
+The bootstrapper should act as the control plane for those specialists:
+
+- maintain canonical project state in `.expert-team/`
+- install or update managed specialists for the current runtime
+- reconcile stale managed specialists when the team changes
+
 Keep the output lean:
 
 - recommend only a few differentiated experts
@@ -20,6 +26,7 @@ Keep the output lean:
 - keep each generated role skill concise and scoped
 - default to `local-only` capability unless outside data is clearly required
 - derive persistent roles from template + dossier + approved memory
+- treat the bootstrapper as the control plane that installs and maintains specialists
 
 ## Workflow
 
@@ -100,18 +107,18 @@ over inventing a broad custom persistent role.
 
 ### 4. Scaffold the generated team directly
 
-Create the output files directly in the workspace. The agent should write:
+Create the canonical project state directly in the workspace. The agent should write:
 
 - `team-spec.json`
 - shared project references
 - approved memory file when the project has durable learnings
-- one skill folder per persistent expert
 - a manifest describing the generated team
+- runtime-installed specialist skills for the current agent
 
 Recommended output layout:
 
 ```text
-generated-team/
+.expert-team/
 ├── manifest.json
 ├── team-spec.json
 ├── memory/
@@ -125,15 +132,20 @@ generated-team/
 │   ├── growth.md
 │   ├── constraints.md
 │   └── assumptions.md
-└── skills/
-    └── <expert-id>/
-        ├── SKILL.md
-        └── agents/openai.yaml
 ```
 
-Treat `team-spec.json` as the canonical editable source for regeneration.
+Treat `.expert-team/team-spec.json` as the canonical editable source for regeneration.
 Use [references/approved-memory-example.json](references/approved-memory-example.json)
-as the pattern for `generated-team/memory/approved-memory.json`.
+as the pattern for `.expert-team/memory/approved-memory.json`.
+Use [references/runtime-management.md](references/runtime-management.md) for
+runtime-specific install and reconciliation rules.
+
+When applying changes:
+
+- update canonical state in `.expert-team/`
+- install or update specialists for the current runtime
+- keep runtime-installed specialists derived from canonical state
+- remove stale managed specialists when they are no longer in the manifest
 
 ### 5. Review before regeneration
 
@@ -143,6 +155,7 @@ Before regenerating:
 - confirm whether expert recommendations still fit the project
 - preserve useful manual edits by incorporating them into `team-spec.json`
 - review and promote only durable learnings into approved memory
+- reconcile managed runtime specialists against the current manifest
 
 Do not regenerate from raw chat transcripts. If there are learnings from prior
 work, convert them into reviewed facts, preferences, or rejected ideas before
@@ -171,9 +184,9 @@ Rules:
 ## Notes
 
 - Keep generated `SKILL.md` files concise and readable.
-- Let the coding agent perform project analysis and file generation directly.
+- Let the coding agent perform project analysis, generation, and runtime installation directly.
 - Record where each generated persistent role came from: template, dossier, and memory.
 - Add scripts to generated experts only for repeated deterministic workflows.
-- Prefer manual regeneration in v1 over auto-mutating skills.
+- Prefer canonical-state regeneration over ad hoc prompt edits.
 - If the project is sparse, generate fewer experts and record explicit
   assumptions instead of inventing detail.

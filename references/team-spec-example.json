@@ -34,6 +34,13 @@
       ]
     }
   },
+  "management": {
+    "project_slug": "fantasypulse",
+    "mode": "apply",
+    "runtime": "codex",
+    "install_root": "~/.codex/skills",
+    "managed_prefix": "fantasypulse-"
+  },
   "memory": {
     "approved_facts": [
       {
@@ -136,7 +143,52 @@
         "fact-seasonality-september-peak",
         "rej-generic-player-news-content",
         "win-weekly-decision-content"
-      ]
+      ],
+      "managed_name": "fantasypulse-seo-lead"
+    },
+    {
+      "id": "growth-lead",
+      "template_id": "growth-lead",
+      "title": "Growth Lead",
+      "summary": "Owns growth diagnosis and experiment prioritization across acquisition, activation, and retention.",
+      "mandate": [
+        "Identify the main growth bottleneck and maintain an experiment roadmap."
+      ],
+      "owns": [
+        "Growth loop analysis",
+        "Experiment prioritization",
+        "KPI tree design"
+      ],
+      "does_not_own": [
+        "Brand-only strategy",
+        "Pure channel execution"
+      ],
+      "deliverables": [
+        "Growth loop map",
+        "Experiment backlog",
+        "KPI tree"
+      ],
+      "success_metrics": [
+        "Rate of validated growth learnings",
+        "Improvement on the main bottleneck"
+      ],
+      "reads": [
+        "product.md",
+        "workflows.md",
+        "growth.md",
+        "constraints.md",
+        "assumptions.md"
+      ],
+      "capability_tier": "local-only",
+      "external_sources": [],
+      "external_usage": [],
+      "memory_refs": [
+        "fact-seasonality-september-peak",
+        "pref-avoid-heavy-paid-spend",
+        "win-weekly-decision-content",
+        "open-premium-conversion-trigger"
+      ],
+      "managed_name": "fantasypulse-growth-lead"
     }
   ]
 }

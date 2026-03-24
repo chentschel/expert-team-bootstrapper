@@ -2,8 +2,8 @@
 
 `expert-team-bootstrapper` is a lean local skill that inspects a project,
 builds a shared dossier, recommends a small set of useful experts, and
-scaffolds reusable role skills such as `SEO Lead`, `CMO`, `Growth Lead`, or
-other project-specific specialists.
+automatically generates, installs, and maintains reusable role skills such as
+`SEO Lead`, `CMO`, `Growth Lead`, or other project-specific specialists.
 
 It is designed to stay simple:
 
@@ -34,7 +34,7 @@ The bootstrapper helps you:
 - build a structured shared dossier for product, audience, domain, growth, and constraints
 - keep a lightweight approved-memory file for durable project learnings
 - recommend which experts are actually worth creating
-- have the coding agent generate lean local skill folders for those experts
+- have the coding agent generate and install managed specialists for the current runtime
 - regenerate the team later from a canonical JSON spec
 
 Generated experts are reusable role definitions, not always-on autonomous
@@ -56,6 +56,7 @@ agents.
     ├── role-catalog.json
     ├── role-template-schema.md
     ├── role-templates.md
+    ├── runtime-management.md
     └── team-spec-example.json
 ```
 
@@ -95,7 +96,7 @@ Restart Codex after installing a new skill.
 Once installed, invoke the skill explicitly:
 
 ```text
-Use $expert-team-bootstrapper to inspect this project, recommend a lean team of experts, and scaffold the generated skills.
+Use $expert-team-bootstrapper to inspect this project, recommend a lean team of experts, and install or update the managed specialists.
 ```
 
 Typical workflow:
@@ -103,8 +104,8 @@ Typical workflow:
 1. Ask the bootstrapper to inspect your repo and summarize the product.
 2. Ask it to recommend only the experts that fit your project and current task.
 3. Have it prepare a `team-spec.json` using a base role template for each persistent expert.
-4. Have the agent create the generated team files directly in your workspace.
-5. Install the generated expert folders you actually want to keep using.
+4. Have the agent update `.expert-team/` and install or update the managed specialists automatically.
+5. Re-run the bootstrapper later to keep the team aligned with project changes and approved memory.
 
 Example prompts:
 
@@ -120,25 +121,26 @@ Use $expert-team-bootstrapper to create a team spec for this project with clear 
 Use $expert-team-bootstrapper to create persistent experts from the role catalog, specialize them for this project, and record only durable learnings in approved memory.
 ```
 
-## Generate an Expert Team
+## Managed Team Lifecycle
 
-The project analysis and file generation should be done by the coding agent
-itself, not by a Python helper. The intended flow is:
+The project analysis, canonical-state generation, and runtime installation
+should be done by the coding agent itself. The intended flow is:
 
 1. the agent inspects your project
-2. the agent drafts `team-spec.json`
-3. the agent drafts `generated-team/memory/approved-memory.json` for durable confirmed learnings
-4. the agent writes `generated-team/shared-references/*`
-5. the agent writes `generated-team/skills/<expert-id>/*`
-6. the agent updates `manifest.json` when the team changes
+2. the agent drafts `.expert-team/team-spec.json`
+3. the agent drafts `.expert-team/memory/approved-memory.json` for durable confirmed learnings
+4. the agent writes `.expert-team/shared-references/*`
+5. the agent updates `.expert-team/manifest.json`
+6. the agent installs or updates managed specialists for the current runtime
 
-You can keep `team-spec.json` as the canonical source for regeneration and
-`approved-memory.json` as the curated long-term memory source.
+You can keep `.expert-team/team-spec.json` as the canonical source for
+regeneration and `.expert-team/memory/approved-memory.json` as the curated
+long-term memory source.
 
-Generated output looks like:
+Canonical project state looks like:
 
 ```text
-generated-team/
+.expert-team/
 ├── manifest.json
 ├── team-spec.json
 ├── memory/
@@ -152,55 +154,49 @@ generated-team/
 │   ├── growth.md
 │   ├── constraints.md
 │   └── assumptions.md
-└── skills/
-    ├── seo-lead/
-    │   ├── SKILL.md
-    │   └── agents/openai.yaml
-    └── ...
 ```
 
-## Install Generated Experts in Codex
+Managed runtime specialists are installed from that state.
 
-The bootstrapper generates reusable expert skills, but it does not auto-install
-them. Copy or symlink the generated expert folders you want into your Codex
-skills directory:
+Default install targets:
 
-```bash
-ln -s "$PWD/generated-team/skills/seo-lead" ~/.codex/skills/seo-lead
-```
+- Codex: `~/.codex/skills/<project>-<role>/`
+- Claude Code: `.claude/skills/<project>-<role>/`
 
-Repeat for any other generated experts you want available as skills.
+This keeps the project-owned canonical state separate from runtime-installed
+artifacts.
 
 ## Use with Claude, Gemini, and Other Assistants
 
 The analysis should be done by the agent you are already using. This skill is
 primarily a reusable instruction package that tells the agent how to inspect the
-project, recommend roles, and generate the expert team files.
+project, recommend roles, and manage the expert team lifecycle.
 
 Codex can consume the base skill natively. Other assistants can still use the
-generated outputs, even if they do not share the same folder-based skill
+canonical project state, even if they do not share the same folder-based skill
 runtime.
 
-The portable pieces are:
+The portable project-owned pieces are:
 
-- `generated-team/memory/approved-memory.json`
-- `generated-team/shared-references/*.md`
-- each generated expert `SKILL.md`
-- `manifest.json`
+- `.expert-team/memory/approved-memory.json`
+- `.expert-team/shared-references/*.md`
+- `.expert-team/team-spec.json`
+- `.expert-team/manifest.json`
 
 ### Practical Claude or Gemini workflow
 
 1. Run the bootstrapper and generate the team locally.
 2. Add the shared reference files to your project knowledge or keep them
    open as reference material.
-3. Use the generated expert `SKILL.md` content as the expert’s operating
-   instruction set for a task-specific chat.
-4. Keep the dossier as shared truth and avoid copying all project context into
+3. Let the bootstrapper manage runtime specialists for the current tool when supported.
+4. If a tool does not support local skill installation, use the canonical files
+   in `.expert-team/` as structured operating context.
+5. Keep the dossier as shared truth and avoid copying all project context into
    every chat.
 
-In other words: Codex can consume the base skill directly, while Claude, Gemini,
-and other assistants can consume the generated dossier and role definitions as
-structured project instructions.
+In other words: the bootstrapper should install and maintain specialists for the
+current runtime where possible, while the canonical `.expert-team/` state stays
+portable across agents.
 
 ## How Roles Stay Consistent
 
@@ -216,6 +212,19 @@ facts and durable learnings.
 
 Approved memory should stay lightweight and reviewed. Keep it in a separate file
 instead of appending raw chat history to role prompts.
+
+## How Specialist Management Works
+
+The bootstrapper should behave like a control plane:
+
+- canonical state lives in `.expert-team/`
+- runtime-specific installed specialists are derived artifacts
+- create and update operations should apply automatically
+- stale managed specialists should be removed or archived during reconciliation
+- unrelated user-created skills should not be touched
+
+The current runtime policy is documented in
+[`references/runtime-management.md`](./references/runtime-management.md).
 
 ## Capability Tiers
 
@@ -234,11 +243,11 @@ This repo intentionally avoids overengineering.
 
 Current scope:
 
-- manual regeneration
+- managed regeneration from canonical state
 - JSON spec as canonical source of truth
 - lightweight approved-memory source of truth
 - shared dossier plus lean role skills
-- agent-driven generation
+- agent-driven generation and runtime installation
 
 Deliberately out of scope for now:
 
@@ -252,7 +261,7 @@ Deliberately out of scope for now:
 For public distribution:
 
 - the repo itself is the installable skill
-- generated expert folders are outputs, not part of the base package
+- runtime-installed specialists are derived artifacts, not part of the base package
 - the install flow should stay `npx skills add https://github.com/chentschel/expert-team-bootstrapper`
 - the root README should explain both skills.sh installation and cross-agent usage
 
