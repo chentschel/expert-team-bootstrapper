@@ -85,8 +85,9 @@ That keeps installation simple and avoids any language-specific setup.
 
 After installation, invoke the skill using your agent's skill syntax:
 
+OpenAI/Codex-style example:
+
 ```text
-[OpenAI/Codex-style example]
 Use $expert-team-bootstrapper to inspect this project, recommend a lean team of experts, and install or update the managed specialists.
 ```
 
