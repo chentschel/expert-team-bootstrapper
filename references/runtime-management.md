@@ -35,7 +35,8 @@ The runtime-installed specialist skills are generated artifacts. The
 
 Use [manifest-schema.md](manifest-schema.md) for the manifest contract and
 [managed-specialist-spec.md](managed-specialist-spec.md) for the installed
-specialist artifact shape.
+specialist artifact shape. Use [security-model.md](security-model.md) for trust
+boundaries, redaction, and path-safety rules.
 
 ## Default install targets
 
@@ -46,6 +47,9 @@ for managed specialists unless the user explicitly asks for something else. For
 project-specific teams, prefer project-local installation. Use user-level
 installation only when the user explicitly asks for it or when the runtime does
 not support project-local skills.
+
+Install targets must be treated as constrained runtime roots, not arbitrary file
+system paths.
 
 ### Codex
 
@@ -83,6 +87,8 @@ When the bootstrapper runs in apply mode, it should:
 - update existing managed specialists when the spec, dossier, or approved memory changes
 - remove or archive managed specialists that are no longer in the manifest
 - keep the manifest aligned with the current installed set
+- validate every target path before writing, archiving, or removing
+- compute safe install paths from approved roots and sanitized managed names instead of trusting raw manifest paths
 
 When the bootstrapper runs in preview mode, it should:
 
@@ -91,10 +97,13 @@ When the bootstrapper runs in preview mode, it should:
 
 ## Safety rules
 
-- default to apply for create and update operations
+- default to preview before runtime-scope writes or removals
+- require explicit user intent for apply when runtime-installed specialists will change
 - show a preview before destructive removals when practical
 - do not modify unrelated user-created skills
 - mark managed skills clearly so they can be reconciled safely
+- do not follow symlinks or path traversal outside approved runtime roots
+- reject unsafe slugs or managed names rather than attempting to normalize silently
 
 ## Managed skill identity
 
@@ -107,3 +116,6 @@ Each managed specialist should have:
 - a project-specific prefixed installed name
 
 This lets the bootstrapper update the right specialist without guessing.
+
+Do not update or remove a skill based on name matching alone. Require matching
+managed marker, project slug, role id, template id, and source-of-truth path.

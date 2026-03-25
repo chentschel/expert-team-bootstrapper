@@ -41,6 +41,8 @@ Use only when the task clearly requires interactive inspection.
 - outside research should be proportional to the task
 - do not assign broad capabilities just because the tool exists
 - prefer the lowest capability tier that still lets the role do the work
+- do not include secrets, customer data, or confidential internal notes in external queries
+- use the minimum derived query needed for outside research or browser work
 
 ## Suggested defaults
 

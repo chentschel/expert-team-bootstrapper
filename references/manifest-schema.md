@@ -12,6 +12,9 @@ live at:
 Use the manifest to reconcile canonical project state with runtime-installed
 specialists.
 
+Treat the manifest as runtime-facing state, not as an authority to bypass path
+validation or managed-identity checks.
+
 It should answer:
 
 - which specialists are currently managed
@@ -63,6 +66,13 @@ Optional fields:
 
 - `status`: `active`, `stale`, `archived`, or `error`
 - `notes`
+
+## Validation rules
+
+- `install_root` must be an approved runtime skill root for the active runtime
+- `install_path` is derived metadata and must be recomputed or validated before use
+- `managed_name` should be a safe slug using lowercase letters, digits, and hyphens
+- reject path traversal, symlink escapes, and unapproved absolute paths
 
 ## Reconciliation rules
 

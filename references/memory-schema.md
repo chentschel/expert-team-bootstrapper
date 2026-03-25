@@ -61,6 +61,8 @@ Do not promote:
 - stylistic noise from one conversation
 - speculative ideas that have not been accepted
 - temporary tactical instructions
+- secrets, tokens, credentials, or raw sensitive user data
+- confidential notes that are not needed to shape durable role behavior
 
 ## Generation rules
 
