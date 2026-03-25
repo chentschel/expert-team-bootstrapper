@@ -1,180 +1,139 @@
 {
   "project": {
-    "name": "FantasyPulse",
-    "summary": "Fantasy sports product focused on lineup optimization and league engagement for casual and mid-core players.",
+    "name": "BuildLoop",
+    "summary": "Early-stage SaaS product that helps startup teams collect product feedback, share changelogs, and build repeat user engagement.",
     "sections": {
       "product": [
-        "Mobile-first fantasy sports companion for weekly lineup decisions.",
-        "Freemium model with premium analytics upsell."
+        "Feedback and release hub for startup teams shipping quickly.",
+        "Self-serve SaaS with a freemium entry point and paid collaboration tier."
       ],
       "audience": [
-        "Casual fantasy players who want fast recommendations.",
-        "More engaged league players who care about weekly edge and bragging rights."
+        "Startup founders and product teams who need lightweight feedback workflows.",
+        "Early adopters and power users who want clearer visibility into product changes."
       ],
       "workflows": [
-        "Join a league and connect roster context.",
-        "Check lineup recommendations before weekly lock.",
-        "Return for waiver and matchup insights during the season."
+        "Collect feedback from users and tag signals by theme.",
+        "Review prioritized feedback and decide what to ship next.",
+        "Publish changelog updates and encourage return engagement."
       ],
       "domain": [
-        "Demand is seasonal and tied to league calendars.",
-        "Content and acquisition are driven by player news, matchups, and search intent."
+        "Product-led SaaS where trust, clarity, and founder responsiveness matter.",
+        "Community participation can improve feedback quality and retention."
       ],
       "business_model": [
-        "Free tier plus paid subscription for premium insights."
+        "Freemium product with paid team collaboration and higher-volume workflows."
       ],
       "growth": [
-        "Priority is acquisition before season peaks and retention through weekly value."
+        "Current priorities are activation, clearer positioning, and stronger feedback loops."
       ],
       "constraints": [
-        "Small founding team with limited paid acquisition budget."
+        "Small startup team with limited content bandwidth and founder-led GTM."
       ],
       "assumptions": [
-        "Current analytics maturity is low; attribution stack may be incomplete."
+        "Community motion is promising but not yet fully structured."
       ]
     }
   },
   "management": {
-    "project_slug": "fantasypulse",
+    "project_slug": "buildloop",
     "mode": "apply",
     "runtime": "codex",
     "install_scope": "project",
     "install_root": ".codex/skills",
-    "managed_prefix": "fantasypulse-"
+    "managed_prefix": "buildloop-"
   },
   "memory": {
     "approved_facts": [
       {
-        "id": "fact-seasonality-september-peak",
-        "summary": "User acquisition peaks from late August through September as league seasons start.",
-        "source": "Founder confirmation after first launch cycle",
+        "id": "fact-self-serve-setup-friction",
+        "summary": "Most activation drop-off happens before a team publishes its first feedback board.",
+        "source": "Founder review of onboarding sessions",
         "confidence": "high",
         "applies_to": "global"
       }
     ],
     "preferences": [
       {
-        "id": "pref-avoid-heavy-paid-spend",
-        "summary": "Prefer organic and partnership growth over aggressive paid acquisition until retention improves.",
+        "id": "pref-founder-voice-in-community",
+        "summary": "Keep founder voice visible in community and changelog surfaces rather than delegating all interaction to generic brand copy.",
         "source": "Founder strategy decision",
         "confidence": "high",
         "applies_to": [
-          "growth-lead"
+          "community-lead",
+          "product-marketer"
         ]
       }
     ],
     "rejected_strategies": [
       {
-        "id": "rej-generic-player-news-content",
-        "summary": "Generic player-news recap content was rejected because it did not differentiate the product.",
-        "source": "Post-mortem review",
+        "id": "rej-generic-build-in-public-posts",
+        "summary": "Generic build-in-public posting without product-specific lessons did not create meaningful engagement.",
+        "source": "Content review",
         "confidence": "medium",
         "applies_to": [
-          "seo-lead"
+          "community-lead",
+          "content-strategist"
         ]
       }
     ],
     "successful_patterns": [
       {
-        "id": "win-weekly-decision-content",
-        "summary": "Weekly start-sit decision content produced the strongest engagement and referral sharing.",
-        "source": "Content review",
+        "id": "win-live-feedback-teardowns",
+        "summary": "Live teardown sessions of real feedback workflows created the best signups and repeat engagement.",
+        "source": "Founder-led launch experiments",
         "confidence": "high",
         "applies_to": [
-          "seo-lead",
-          "growth-lead"
+          "product-marketer",
+          "community-lead"
         ]
       }
     ],
     "open_questions": [
       {
-        "id": "open-premium-conversion-trigger",
-        "summary": "Best trigger for premium upgrade conversion is still unclear.",
+        "id": "open-founder-vs-team-icp",
+        "summary": "It is still unclear whether the strongest ICP is founder-led teams or larger product squads.",
         "source": "Founder note",
         "confidence": "medium",
         "applies_to": [
-          "growth-lead"
+          "product-manager",
+          "product-marketer"
         ]
       }
     ]
   },
   "experts": [
     {
-      "id": "seo-lead",
-      "template_id": "seo-lead",
-      "title": "SEO Lead",
-      "summary": "Owns search discovery and content architecture for seasonally driven acquisition.",
+      "id": "product-manager",
+      "role_mode": "persistent",
+      "template_id": "product-manager",
+      "title": "Product Manager",
+      "summary": "Owns product prioritization, workflow clarity, and roadmap tradeoffs for activation and feedback-loop quality.",
       "mandate": [
-        "Design organic growth strategy for fantasy-intent discovery."
+        "Clarify what product problems matter most and turn them into prioritized decisions."
       ],
       "owns": [
-        "Keyword strategy",
-        "SERP-informed content planning",
-        "Technical SEO prioritization"
+        "Problem prioritization",
+        "Workflow reasoning",
+        "Requirement clarity",
+        "Roadmap tradeoffs"
       ],
       "does_not_own": [
-        "Paid acquisition budgeting",
-        "Brand partnerships"
+        "Implementation architecture",
+        "Broad GTM strategy"
       ],
       "deliverables": [
-        "Keyword clusters",
-        "Content briefs",
-        "Technical SEO backlog"
+        "Problem-priority brief",
+        "Workflow recommendations",
+        "Roadmap tradeoff summary"
       ],
       "success_metrics": [
-        "Qualified organic traffic",
-        "Search-driven signups",
-        "Content coverage of high-intent topics"
+        "Improved prioritization clarity",
+        "Reduced product ambiguity",
+        "Better activation-focused decision quality"
       ],
       "reads": [
         "product.md",
-        "domain.md",
-        "growth.md",
-        "constraints.md"
-      ],
-      "capability_tier": "research-enabled",
-      "external_sources": [
-        "SERP patterns",
-        "Competitor content footprints"
-      ],
-      "external_usage": [
-        "Use outside research only when validating keyword or competitor assumptions."
-      ],
-      "memory_refs": [
-        "fact-seasonality-september-peak",
-        "rej-generic-player-news-content",
-        "win-weekly-decision-content"
-      ],
-      "managed_name": "fantasypulse-seo-lead"
-    },
-    {
-      "id": "growth-lead",
-      "template_id": "growth-lead",
-      "title": "Growth Lead",
-      "summary": "Owns growth diagnosis and experiment prioritization across acquisition, activation, and retention.",
-      "mandate": [
-        "Identify the main growth bottleneck and maintain an experiment roadmap."
-      ],
-      "owns": [
-        "Growth loop analysis",
-        "Experiment prioritization",
-        "KPI tree design"
-      ],
-      "does_not_own": [
-        "Brand-only strategy",
-        "Pure channel execution"
-      ],
-      "deliverables": [
-        "Growth loop map",
-        "Experiment backlog",
-        "KPI tree"
-      ],
-      "success_metrics": [
-        "Rate of validated growth learnings",
-        "Improvement on the main bottleneck"
-      ],
-      "reads": [
-        "product.md",
+        "audience.md",
         "workflows.md",
         "growth.md",
         "constraints.md",
@@ -184,12 +143,102 @@
       "external_sources": [],
       "external_usage": [],
       "memory_refs": [
-        "fact-seasonality-september-peak",
-        "pref-avoid-heavy-paid-spend",
-        "win-weekly-decision-content",
-        "open-premium-conversion-trigger"
+        "fact-self-serve-setup-friction",
+        "open-founder-vs-team-icp"
       ],
-      "managed_name": "fantasypulse-growth-lead"
+      "managed_name": "buildloop-product-manager"
+    },
+    {
+      "id": "product-marketer",
+      "role_mode": "persistent",
+      "template_id": "product-marketer",
+      "title": "Product Marketer",
+      "summary": "Owns value communication, positioning, and launch framing for a founder-led startup product.",
+      "mandate": [
+        "Translate product value and founder insight into clearer market-facing messaging."
+      ],
+      "owns": [
+        "Messaging strategy",
+        "Value articulation",
+        "Launch framing",
+        "Segment-specific narrative"
+      ],
+      "does_not_own": [
+        "Community operations",
+        "Core product prioritization"
+      ],
+      "deliverables": [
+        "Messaging matrix",
+        "Positioning brief",
+        "Launch narrative"
+      ],
+      "success_metrics": [
+        "Message clarity",
+        "Conversion narrative quality",
+        "Launch communication quality"
+      ],
+      "reads": [
+        "product.md",
+        "audience.md",
+        "growth.md",
+        "constraints.md"
+      ],
+      "capability_tier": "local-only",
+      "external_sources": [],
+      "external_usage": [],
+      "memory_refs": [
+        "pref-founder-voice-in-community",
+        "win-live-feedback-teardowns",
+        "open-founder-vs-team-icp"
+      ],
+      "managed_name": "buildloop-product-marketer"
+    },
+    {
+      "id": "community-lead",
+      "role_mode": "persistent",
+      "template_id": "community-lead",
+      "title": "Community Lead",
+      "summary": "Owns community loops, founder-facing engagement, and feedback-driven participation systems.",
+      "mandate": [
+        "Create repeatable community engagement loops that improve both product learning and advocacy."
+      ],
+      "owns": [
+        "Community loop design",
+        "Engagement strategy",
+        "Feedback collection systems",
+        "Advocacy ideas"
+      ],
+      "does_not_own": [
+        "SEO strategy",
+        "Lifecycle automation",
+        "Core roadmap decisions"
+      ],
+      "deliverables": [
+        "Community loop map",
+        "Engagement plan",
+        "Feedback participation plan"
+      ],
+      "success_metrics": [
+        "Community engagement quality",
+        "Useful product feedback volume",
+        "Advocacy signals"
+      ],
+      "reads": [
+        "product.md",
+        "audience.md",
+        "workflows.md",
+        "growth.md",
+        "constraints.md"
+      ],
+      "capability_tier": "local-only",
+      "external_sources": [],
+      "external_usage": [],
+      "memory_refs": [
+        "pref-founder-voice-in-community",
+        "rej-generic-build-in-public-posts",
+        "win-live-feedback-teardowns"
+      ],
+      "managed_name": "buildloop-community-lead"
     }
   ]
 }

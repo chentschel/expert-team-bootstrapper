@@ -15,9 +15,14 @@ Role titles alone are too weak. A generated role should come from:
 That keeps responsibilities consistent across projects while still allowing
 specialization.
 
+The startup-focused canonical catalog should prioritize operating roles a tech
+startup needs repeatedly. Temporary specialists may still exist outside the
+catalog, but they are not canonical templates.
+
 ## Required template fields
 
 - `id`: stable identifier used in specs and manifests
+- `role_class`: `core` or `secondary` for canonical startup-role templates
 - `title`: human-facing role title
 - `purpose`: canonical summary of why the role exists
 - `when_to_recommend`: conditions that justify creating the role
@@ -39,6 +44,7 @@ When generating a persistent role:
 - keep the generated role narrower than the template, not broader
 - if no template fits cleanly, either recommend no role or create a temporary
   task-specific expert instead
+- recommend roles bottleneck-first, with startup stage used only as a modifier
 
 ## Output traceability
 
@@ -50,3 +56,11 @@ Each generated persistent expert should record:
 
 That traceability should live in `team-spec.json` and optionally in the
 generated manifest.
+
+## Promotion rules
+
+Temporary specialists should become candidates for canonical templates only when:
+
+- they solve a distinct recurring role need
+- they stay clearly differentiated from existing templates
+- they prove useful across multiple iterations or projects

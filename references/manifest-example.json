@@ -1,15 +1,15 @@
 {
   "version": 1,
   "project": {
-    "name": "FantasyPulse",
-    "slug": "fantasypulse"
+    "name": "BuildLoop",
+    "slug": "buildloop"
   },
   "management": {
     "runtime": "codex",
     "mode": "apply",
     "install_scope": "project",
     "install_root": ".codex/skills",
-    "managed_prefix": "fantasypulse-"
+    "managed_prefix": "buildloop-"
   },
   "state": {
     "team_spec_path": ".expert-team/team-spec.json",
@@ -17,49 +17,49 @@
   },
   "specialists": [
     {
-      "id": "seo-lead",
-      "managed_name": "fantasypulse-seo-lead",
-      "template_id": "seo-lead",
+      "id": "product-manager",
+      "managed_name": "buildloop-product-manager",
+      "template_id": "product-manager",
       "install_scope": "project",
-      "install_path": ".codex/skills/fantasypulse-seo-lead",
-      "capability_tier": "research-enabled",
-      "reads": [
-        "product.md",
-        "domain.md",
-        "growth.md",
-        "constraints.md"
-      ],
-      "memory_refs": [
-        "fact-seasonality-september-peak",
-        "rej-generic-player-news-content",
-        "win-weekly-decision-content"
-      ],
-      "managed_by": "expert-team-bootstrapper",
-      "last_applied": "2026-03-24T10:00:00Z",
-      "status": "active"
-    },
-    {
-      "id": "growth-lead",
-      "managed_name": "fantasypulse-growth-lead",
-      "template_id": "growth-lead",
-      "install_scope": "project",
-      "install_path": ".codex/skills/fantasypulse-growth-lead",
+      "install_path": ".codex/skills/buildloop-product-manager",
       "capability_tier": "local-only",
       "reads": [
         "product.md",
+        "audience.md",
         "workflows.md",
         "growth.md",
         "constraints.md",
         "assumptions.md"
       ],
       "memory_refs": [
-        "fact-seasonality-september-peak",
-        "pref-avoid-heavy-paid-spend",
-        "win-weekly-decision-content",
-        "open-premium-conversion-trigger"
+        "fact-self-serve-setup-friction",
+        "open-founder-vs-team-icp"
       ],
       "managed_by": "expert-team-bootstrapper",
-      "last_applied": "2026-03-24T10:00:00Z",
+      "last_applied": "2026-03-25T10:00:00Z",
+      "status": "active"
+    },
+    {
+      "id": "community-lead",
+      "managed_name": "buildloop-community-lead",
+      "template_id": "community-lead",
+      "install_scope": "project",
+      "install_path": ".codex/skills/buildloop-community-lead",
+      "capability_tier": "local-only",
+      "reads": [
+        "product.md",
+        "audience.md",
+        "workflows.md",
+        "growth.md",
+        "constraints.md"
+      ],
+      "memory_refs": [
+        "pref-founder-voice-in-community",
+        "rej-generic-build-in-public-posts",
+        "win-live-feedback-teardowns"
+      ],
+      "managed_by": "expert-team-bootstrapper",
+      "last_applied": "2026-03-25T10:00:00Z",
       "status": "active"
     }
   ]

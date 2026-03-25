@@ -3,13 +3,15 @@
 `expert-team-bootstrapper` is a lean local skill that inspects a project,
 builds a shared dossier, recommends a small set of useful experts, and
 automatically generates, installs, and maintains reusable role skills such as
-`SEO Lead`, `CMO`, `Growth Lead`, or other project-specific specialists.
+`Product Manager`, `SEO Lead`, `Community Lead`, `Growth Lead`, or other
+project-specific specialists.
 
 It is designed to stay simple:
 
 - repo-first, not questionnaire-first
 - shared project knowledge, not duplicated prompt blobs
 - a few differentiated experts, not an artificial org chart
+- startup operating roles first, not a full enterprise org chart
 - explicit capability tiers for external data access
 - persistent experts derived from template + dossier + approved memory
 
@@ -39,6 +41,10 @@ The bootstrapper helps you:
 
 Generated experts are reusable role definitions, not always-on autonomous
 agents.
+
+The default role model is startup-focused. It prioritizes the recurring roles a
+tech startup actually needs around product, growth, SEO, content, community,
+and product marketing.
 
 ## Repo Layout
 
@@ -94,7 +100,7 @@ Typical workflow:
 
 1. Ask the bootstrapper to inspect your repo and summarize the product.
 2. Ask it to recommend only the experts that fit your project and current task.
-3. Have it prepare a `team-spec.json` using a base role template for each persistent expert.
+3. Have it prepare a `team-spec.json` using a base role template for each persistent expert and clear temporary-role labeling for one-off specialists.
 4. Run in `preview` mode first when runtime-installed specialists would be created, changed, or removed.
 5. Run in `apply` mode to update `.expert-team/` and install or update the managed specialists after review.
 6. Re-run the bootstrapper later to keep the team aligned with project changes and approved memory.
@@ -217,6 +223,48 @@ facts and durable learnings.
 Approved memory should stay lightweight and reviewed. Keep it in a separate file
 instead of appending raw chat history to role prompts.
 
+## Startup Role Model
+
+The canonical catalog is startup-focused.
+
+Startup-core persistent roles:
+
+- `product-manager`
+- `product-marketer`
+- `growth-lead`
+- `seo-lead`
+- `community-lead`
+- `content-strategist`
+
+Secondary persistent roles:
+
+- `cmo`
+- `lifecycle-crm-lead`
+
+For now, legal and finance should stay outside the canonical startup catalog and
+be handled only as temporary specialists when a project clearly needs them.
+
+Recommendation should be bottleneck-first. Startup stage can modify the
+recommendation, but the current repo/project bottleneck should drive the first
+role suggestions.
+
+## Persistent vs Temporary Specialists
+
+Use a persistent specialist when the role is likely to matter across repeated
+tasks and maps cleanly to one canonical template.
+
+Use a temporary specialist when:
+
+- the need is narrow or experimental
+- the role does not map cleanly to the current template catalog
+- the work is unlikely to recur
+
+Temporary specialists can still be useful, but they should not be treated as
+canonical startup-role templates.
+
+Promote a temporary specialist into the catalog only when it becomes distinct,
+repeatedly useful, and generalizable across multiple iterations or projects.
+
 ## How Specialist Management Works
 
 The bootstrapper should behave like a control plane:
@@ -274,6 +322,7 @@ Current scope:
 - JSON spec as canonical source of truth
 - lightweight approved-memory source of truth
 - shared dossier plus lean role skills
+- startup-focused canonical role catalog
 - agent-driven generation and runtime installation
 
 Deliberately out of scope for now:

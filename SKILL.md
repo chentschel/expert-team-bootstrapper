@@ -13,6 +13,10 @@ current needs from repo artifacts, ask only the questions that materially change
 the generated team, then scaffold role skills backed by shared project
 references.
 
+Default to startup operating roles first. The canonical catalog should favor
+the recurring functions a tech startup typically needs around product, growth,
+SEO, community, content, and product marketing.
+
 The bootstrapper should act as the control plane for those specialists:
 
 - maintain canonical project state in `.expert-team/`
@@ -77,6 +81,9 @@ For each recommended expert, define:
 Prefer a small team with clear boundaries. Merge or reject roles that overlap.
 It is valid to recommend no new expert.
 
+Recommendation should be bottleneck-first. Use startup stage only as a modifier,
+not as the primary reason to recommend a role.
+
 Use [references/role-catalog.json](references/role-catalog.json) as the
 canonical template source, [references/role-template-schema.md](references/role-template-schema.md)
 for composition rules, [references/role-templates.md](references/role-templates.md)
@@ -112,6 +119,10 @@ Every persistent expert in the spec should include:
 - dossier files it reads
 - any approved-memory entries that materially sharpen the role
 
+Temporary specialists are allowed when the need is narrow, experimental, or not
+yet clearly worthy of a canonical template. Mark them explicitly as temporary
+and do not treat them as additions to the role catalog.
+
 Persistent experts should be composed from:
 
 1. one base template from `role-catalog.json`
@@ -121,6 +132,9 @@ Persistent experts should be composed from:
 
 If no template fits cleanly, prefer no role or a temporary task-specific expert
 over inventing a broad custom persistent role.
+
+Promote a temporary specialist into the canonical role library only when it
+proves distinct, repeatedly useful, and generalizable beyond one local use.
 
 ### 4. Scaffold the generated team directly
 

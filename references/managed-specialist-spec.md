@@ -31,7 +31,7 @@ Every managed specialist must:
 
 ## Required `SKILL.md` frontmatter
 
-- `name`: installed managed skill name such as `fantasypulse-growth-lead`
+- `name`: installed managed skill name such as `buildloop-product-manager`
 - `description`: concise statement of role, project specificity, and when to use it
 
 ## Required `SKILL.md` body sections
@@ -56,9 +56,9 @@ top of `SKILL.md`, for example:
 
 ```text
 Managed by: expert-team-bootstrapper
-Project slug: fantasypulse
-Role id: growth-lead
-Template id: growth-lead
+Project slug: buildloop
+Role id: product-manager
+Template id: product-manager
 Source of truth: .expert-team/team-spec.json
 Install scope: project
 ```
